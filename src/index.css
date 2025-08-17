@@ -146,6 +146,12 @@ All colors MUST be HSL.
     @apply bg-primary text-primary-foreground border border-primary font-light tracking-wide px-6 py-2 rounded-sm transition-all duration-300;
   }
   
+  @media (max-width: 768px) {
+    .btn-primary {
+      @apply px-4 py-1.5 text-sm;
+    }
+  }
+  
   .btn-primary:hover {
     @apply bg-accent border-accent transform scale-105;
   }

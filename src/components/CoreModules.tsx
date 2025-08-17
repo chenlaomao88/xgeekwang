@@ -150,7 +150,7 @@ const CoreModules = () => {
           onClick={() => setExpandedModule(null)}
         >
           <div 
-            className="bg-card rounded-lg border max-w-4xl w-full max-h-[90vh] overflow-auto"
+            className="bg-card rounded-lg border max-w-4xl w-full max-h-[90vh] overflow-auto md:max-h-[80vh]"
             onClick={(e) => e.stopPropagation()}
           >
             <ModuleDetail 
