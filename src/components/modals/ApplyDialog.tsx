@@ -2,6 +2,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import qrWechat from "@/assets/qr-wechat.jpg";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="space-y-3">
@@ -97,12 +98,12 @@ export default function ApplyDialog({ trigger, mode = "apply" }: ApplyDialogProp
             <div className="text-center pt-4">
               <p>关注公众号留言 申请加入</p>
               <img 
-                src="/src/assets/qr-wechat.jpg" 
+                src={qrWechat} 
                 alt="公众号二维码" 
                 className="mx-auto mt-2 w-32 h-32 object-contain"
                 draggable="false"
                 onContextMenu={(e) => e.preventDefault()}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
               />
             </div>
