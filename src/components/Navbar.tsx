@@ -89,11 +89,11 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center space-x-3">
           <div className="hidden lg:flex">
-            <img src={logoDesktop} alt="Logo" className="w-12 h-12 logo-hover cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+            <img src={logoDesktop} alt="Logo" className="w-12 h-12 logo-hover cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} draggable="false" onContextMenu={(e) => e.preventDefault()} loading="lazy" decoding="async" />
           </div>
           <div className="hidden lg:block text-xs md:text-xl font-light tracking-wider">X极客网</div>
           <div className="lg:hidden">
-            <img src={logoMobile} alt="Logo" className="w-10 h-10 logo-hover cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+            <img src={logoMobile} alt="Logo" className="w-10 h-10 logo-hover cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} draggable="false" onContextMenu={(e) => e.preventDefault()} loading="lazy" decoding="async" />
           </div>
         </div>
 

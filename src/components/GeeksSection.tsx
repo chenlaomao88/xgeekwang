@@ -625,6 +625,10 @@ const GeeksSection = () => {
                         src={member.avatar} 
                         alt={member.name}
                         className="w-10 h-10 rounded-full object-cover"
+                        draggable="false"
+                        onContextMenu={(e) => e.preventDefault()}
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="flex-1">
                         <div className="font-medium text-sm">{member.name}</div>

@@ -18,6 +18,10 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@assets": path.resolve(__dirname, "./src/assets"),
     },
   },
+  define: {
+    'import.meta.env.BASE_URL': JSON.stringify(process.env.BASE_URL || './'),
+  }
 }));

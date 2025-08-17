@@ -153,6 +153,8 @@ const MembersSection = () => {
                         loading="lazy"
                         decoding="async"
                         className="w-20 h-20 rounded-full border-2 border-accent/20"
+                        draggable="false"
+                        onContextMenu={(e) => e.preventDefault()}
                       />
                       <div>
                         <h3 className="text-2xl font-light">{member.name}</h3>
@@ -215,6 +217,8 @@ const MemberCard = ({
           loading="lazy"
           decoding="async"
           className="w-16 h-16 mx-auto rounded-full border-2 border-accent/20"
+          draggable="false"
+          onContextMenu={(e) => e.preventDefault()}
         />
         
         <div>
