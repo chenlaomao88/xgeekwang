@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X极客网 - 聚北漂精英，颠覆传统格局</title>
+    <meta name="description" content="X极客网：聚合AI、投资、硬科技等中国顶尖人才的创新生态，共创项目、资源对接与跨界合作。" />
+    <meta name="author" content="X极客网" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <meta property="og:title" content="X极客网 - 聚北漂精英，颠覆传统格局" />
+    <meta property="og:description" content="聚合AI、投资、硬科技等中国顶尖人才的创新生态，共创项目、资源对接与跨界合作。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="" />
+    
+    <!-- 禁止图片下载、内容复制和鼠标右键菜单 -->
+    <style>
+      img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      body {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+    </style>
+    <script>
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('keydown', function(e) {
+        // 禁止Ctrl+C、Ctrl+V、Ctrl+A等快捷键
+        if ((e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 65)) ||
+            (e.keyCode === 123) || // F12
+            (e.ctrlKey && e.shiftKey && e.keyCode === 73)) { // Ctrl+Shift+I
+          e.preventDefault();
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

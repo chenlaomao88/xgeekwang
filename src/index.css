@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* X极客网 - 原研哉设计体系 */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* 原研哉配色体系 */
+    --porcelain-white: 0 0% 98%;
+    --ink-black: 0 0% 13%;
+    --cinnabar-red: 0 65% 46%;
+    --deep-slate: 210 25% 45%;
+    --moon-white: 0 0% 94%;
+    --paper-gray: 0 0% 88%;
+    
+    /* 主色彩定义 */
+    --background: var(--porcelain-white);
+    --foreground: var(--ink-black);
+
+    --card: var(--porcelain-white);
+    --card-foreground: var(--ink-black);
+
+    --popover: var(--porcelain-white);
+    --popover-foreground: var(--ink-black);
+
+    --primary: var(--ink-black);
+    --primary-foreground: var(--porcelain-white);
+
+    --secondary: var(--moon-white);
+    --secondary-foreground: var(--ink-black);
+
+    --muted: var(--paper-gray);
+    --muted-foreground: var(--deep-slate);
+
+    --accent: var(--cinnabar-red);
+    --accent-foreground: var(--porcelain-white);
+
+    --destructive: var(--cinnabar-red);
+    --destructive-foreground: var(--porcelain-white);
+
+    --border: var(--paper-gray);
+    --input: var(--paper-gray);
+    --ring: var(--cinnabar-red);
+
+    --radius: 0.5rem;
+
+    /* 原研哉设计特殊变量 */
+    --glass-blur: 12px;
+    --paper-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+    --elegant-shadow: 0 10px 30px -10px hsla(var(--cinnabar-red), 0.3);
+    --transition-smooth: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    
+    /* 梯度和渐变 */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--porcelain-white)), hsl(var(--moon-white)));
+    --gradient-accent: linear-gradient(45deg, hsl(var(--cinnabar-red)), hsl(0 65% 50%));
+    
+    /* 动画曲线 */
+    --ease-natural: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ease-gentle: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .dark {
+    --background: var(--ink-black);
+    --foreground: var(--porcelain-white);
+
+    --card: var(--ink-black);
+    --card-foreground: var(--porcelain-white);
+
+    --popover: var(--ink-black);
+    --popover-foreground: var(--porcelain-white);
+
+    --primary: var(--porcelain-white);
+    --primary-foreground: var(--ink-black);
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: var(--porcelain-white);
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: var(--cinnabar-red);
+    --accent-foreground: var(--porcelain-white);
+
+    --destructive: var(--cinnabar-red);
+    --destructive-foreground: var(--porcelain-white);
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: var(--cinnabar-red);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-light;
+    font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  }
+}
+
+@layer components {
+  /* 原研哉核心组件样式 */
+  .glass-navbar {
+    @apply backdrop-blur-xl border-b;
+    background: hsla(var(--background), 0.92);
+    border-color: hsla(var(--border), 0.70);
+    box-shadow: var(--paper-shadow);
+  }
+  
+  .module-card {
+    @apply bg-card rounded-lg border transition-all duration-300;
+    border-color: hsla(var(--border), 0.20);
+    box-shadow: var(--paper-shadow);
+  }
+  
+  .module-card:hover {
+    @apply transform translate-y-[-2px];
+    box-shadow: var(--elegant-shadow);
+  }
+  
+  .nav-link-elegant {
+    @apply relative text-foreground font-light tracking-wide transition-colors duration-300;
+  }
+  
+  .nav-link-elegant::after {
+    @apply absolute bottom-0 left-0 w-0 h-[1px] bg-accent transition-all duration-300;
+    content: '';
+  }
+  
+  .nav-link-elegant:hover::after {
+    @apply w-full;
+  }
+  
+  .nav-link-elegant:hover {
+    @apply text-accent;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground border border-primary font-light tracking-wide px-6 py-2 rounded-sm transition-all duration-300;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-accent border-accent transform scale-105;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent border border-foreground text-foreground font-light tracking-wide px-6 py-2 rounded-sm transition-all duration-300 relative overflow-hidden;
+  }
+  
+  .btn-outline::before {
+    @apply absolute top-0 left-0 w-0 h-full bg-foreground transition-all duration-300 z-[-1];
+    content: '';
+  }
+  
+  .btn-outline:hover::before {
+    @apply w-full;
+  }
+  
+  .btn-outline:hover {
+    @apply text-background;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  /* Neural Network Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes orbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .transform-center {
+    transform-origin: 250px 250px;
+  }
+}
