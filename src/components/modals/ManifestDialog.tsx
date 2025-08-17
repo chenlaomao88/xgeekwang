@@ -51,6 +51,8 @@ export default function ManifestDialog({ trigger, className }: ManifestDialogPro
             </ul>
           </Section>
 
+          <Separator />
+
           <Section title="我们要做什么">
             <ul className="list-disc pl-5 space-y-1">
               <li><span className="font-bold">聚沙成塔</span>：散是满天星，聚是燎原火！把散落在香河各个角落的北漂精英聚起来，打破信息孤岛，形成强大的“北漂创新共同体”。</li>
