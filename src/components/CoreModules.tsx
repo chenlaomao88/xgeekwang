@@ -150,7 +150,7 @@ const CoreModules = () => {
           onClick={() => setExpandedModule(null)}
         >
           <div 
-            className="bg-card rounded-lg border max-w-4xl w-full max-h-[90vh] overflow-auto md:max-h-[80vh]"
+            className="bg-card rounded-lg border max-w-4xl w-full max-h-[90vh] overflow-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <ModuleDetail 
@@ -260,7 +260,7 @@ const ModuleDetail = ({ module, onClose }: { module: any; onClose: () => void })
 
         <div className="grid md:grid-cols-2 gap-8">
           {module.detailContent.features.map((feature, index) => (
-            <div key={index} className="bg-secondary/20 rounded-lg p-6">
+            <div key={index} className="bg-secondary/20 rounded-lg p-6 sm:p-4">
               <h3 className="font-medium text-lg mb-3 text-accent">{feature.name}</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                 {feature.description}
