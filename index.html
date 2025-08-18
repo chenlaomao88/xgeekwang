@@ -19,7 +19,6 @@
     
     <!-- 禁止图片下载、内容复制和鼠标右键菜单 -->
     <style>
-      /* 禁止图片拖拽和长按保存 */
       img {
         -webkit-user-drag: none;
         -khtml-user-drag: none;
@@ -32,23 +31,13 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        pointer-events: none;
       }
-      
-      /* 为canvas元素启用pointer-events以保持动画交互 */
-      canvas {
-        pointer-events: auto;
-      }
-      
-      /* 禁止文本选择 */
       body {
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        -webkit-touch-callout: none;
       }
-      
       /* 弹窗滚动支持 - 适用于所有设备 */
       .DialogContent {
         -webkit-overflow-scrolling: touch;
@@ -57,18 +46,11 @@
         /* 隐藏滚动条 */
         scrollbar-width: none;
         -ms-overflow-style: none;
-        /* 禁止文本选择，但保持滚动功能 */
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
       }
-      
       /* Webkit浏览器隐藏滚动条 */
       .DialogContent::-webkit-scrollbar {
         display: none;
       }
-      
       /* 添加下滑指示器 */
       .DialogContent::after {
         content: '';
@@ -82,14 +64,12 @@
         border-radius: 2px;
         animation: scrollIndicator 1.5s infinite ease-in-out;
       }
-      
       @keyframes scrollIndicator {
         0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
         50% { opacity: 1; transform: translateX(-50%) translateY(5px); }
       }
-      
-      /* 为需要文本选择的特定元素添加例外 */
-      .selectable-text {
+      /* 允许弹窗内容选择 */
+      .DialogContent * {
         -webkit-user-select: text;
         -moz-user-select: text;
         -ms-user-select: text;
@@ -114,5 +94,67 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <style>
+      /* 防止图片被保存 */
+      img:not(.logo-hover) {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+        pointer-events: none;
+      }
+      
+      /* 防止文本被选择和复制 */
+      body:not(.allow-select) {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      /* 弹窗滚动样式 */
+      .modal-open {
+        overflow: hidden;
+      }
+      .modal-open .modal-overlay {
+        overflow-y: auto;
+      }
+      /* 滚动条隐藏样式 */
+      .hide-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
+      }
+    </style>
+    <script>
+      // 禁用右键菜单和常用快捷键
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        // 禁用 Ctrl+C, Ctrl+V, Ctrl+A
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || 
+                          e.key === 'v' || e.key === 'V' || 
+                          e.key === 'a' || e.key === 'A' ||
+                          e.key === 'u' || e.key === 'U' ||
+                          e.key === 's' || e.key === 'S')) {
+          e.preventDefault();
+        }
+        // 禁用 F12
+        if (e.key === 'F12') {
+          e.preventDefault();
+        }
+      });
+    </script>
   </body>
 </html>
