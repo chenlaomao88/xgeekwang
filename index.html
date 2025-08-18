@@ -31,7 +31,11 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        pointer-events: none;
+      }
+      
+      /* 为logo图片保留pointer-events以支持hover动效 */
+      .logo-hover {
+        pointer-events: auto;
       }
       body {
         -webkit-user-select: none;
