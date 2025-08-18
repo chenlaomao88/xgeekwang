@@ -35,7 +35,7 @@ export default function ApplyDialog({ trigger, mode = "apply" }: ApplyDialogProp
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-w-lg sm:rounded-lg select-text">
+      <DialogContent className="max-w-lg sm:rounded-lg hide-scrollbar">
         <DialogHeader>
           <DialogTitle className="text-xl font-light">
             {mode === "openday" ? "预约开放日" : "申请加入 X极客"}

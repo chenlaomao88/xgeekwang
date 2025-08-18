@@ -9,7 +9,7 @@ export default function ResearchDialog({ trigger }: ResearchDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-w-lg sm:rounded-lg select-text">
+      <DialogContent className="max-w-lg sm:rounded-lg hide-scrollbar">
         <DialogHeader>
           <DialogTitle className="text-xl font-light">香河创新与创业研究报告</DialogTitle>
           <DialogDescription>探索科技驱动的未来机遇</DialogDescription>
