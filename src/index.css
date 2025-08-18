@@ -211,6 +211,9 @@ All colors MUST be HSL.
       user-select: none;
       -webkit-touch-callout: none;
       -webkit-tap-highlight-color: transparent;
+      /* 允许滚动 */
+      overflow-y: auto;
+      touch-action: pan-y;
     }
     
     .hide-scrollbar::-webkit-scrollbar {
