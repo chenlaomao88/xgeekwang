@@ -37,7 +37,7 @@ export default function ResearchDialog({ trigger }: ResearchDialogProps) {
               decoding="async"
             />
             <p className="text-sm mb-2">扫码公众号回复【研究报告】获取完整版</p>
-            <p className="text-xs text-muted-foreground">正在搭建中，敬请期待</p>
+            <p className="text-xs text-muted-foreground">暂缓开放，开放日另行通知</p>
           </div>
         </div>
         
