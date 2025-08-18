@@ -35,6 +35,11 @@
         pointer-events: none;
       }
       
+      /* 为canvas元素启用pointer-events以保持动画交互 */
+      canvas {
+        pointer-events: auto;
+      }
+      
       /* 禁止文本选择 */
       body {
         -webkit-user-select: none;
