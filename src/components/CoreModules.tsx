@@ -131,7 +131,7 @@ const CoreModules = () => {
         </div>
 
         {/* All modules expanded by default */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-4">
           {modules.map((module) => (
             <ModuleCard
               key={module.id}
@@ -177,32 +177,32 @@ const ModuleCard = ({
 
   return (
     <div
-      className={`module-card p-6 transition-all duration-300 h-auto ${module.color}`}
+      className={`module-card p-4 transition-all duration-300 h-auto ${module.color} sm:p-6`}
     >
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-            <Icon className="w-6 h-6 text-accent" />
+          <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center sm:w-12 sm:h-12">
+            <Icon className="w-5 h-5 text-accent sm:w-6 sm:h-6" />
           </div>
           <div>
-            <h3 className="font-medium text-xl">{module.title}</h3>
-            <p className="text-sm text-muted-foreground">{module.subtitle}</p>
+            <h3 className="font-medium text-lg sm:text-xl">{module.title}</h3>
+            <p className="text-xs text-muted-foreground sm:text-sm">{module.subtitle}</p>
           </div>
         </div>
       </div>
 
       {/* Description */}
-      <p className="text-sm text-muted-foreground leading-relaxed mb-6 whitespace-pre-line h-20">
+      <p className="text-xs text-muted-foreground leading-relaxed mb-4 sm:mb-6 whitespace-pre-line h-16 sm:h-20">
         {module.description}
       </p>
 
       {/* Features Grid */}
-      <div className="grid grid-cols-2 gap-3 mb-6">
+      <div className="grid grid-cols-2 gap-2 mb-4 sm:gap-3 sm:mb-6">
         {module.features.map((feature, index) => (
           <div 
             key={feature}
-            className="text-xs bg-secondary/50 rounded px-3 py-2 text-center font-medium"
+            className="text-xs bg-secondary/50 rounded px-2 py-1 text-center font-medium sm:px-3 sm:py-2"
           >
             {feature}
           </div>
@@ -210,10 +210,10 @@ const ModuleCard = ({
       </div>
 
       {/* Stats */}
-      <div className="flex justify-between text-center mb-6">
+      <div className="flex justify-between text-center mb-4 sm:mb-6">
         {Object.entries(module.stats).map(([key, value]) => (
           <div key={key}>
-            <div className="text-2xl font-light text-accent">{value as number}</div>
+            <div className="text-xl font-light text-accent sm:text-2xl">{value as number}</div>
             <div className="text-xs text-muted-foreground capitalize">{key}</div>
           </div>
         ))}
@@ -221,7 +221,7 @@ const ModuleCard = ({
 
       {/* Action Button */}
       <button 
-        className="w-full btn-primary text-sm py-3"
+        className="w-full btn-primary text-sm py-2 sm:py-3"
         onClick={() => onExpand(module.id)}
       >
         深入探索 {module.title}
@@ -260,7 +260,7 @@ const ModuleDetail = ({ module, onClose }: { module: any; onClose: () => void })
 
         <div className="grid md:grid-cols-2 gap-8">
           {module.detailContent.features.map((feature, index) => (
-            <div key={index} className="bg-secondary/20 rounded-lg p-6 sm:p-4">
+            <div key={index} className="bg-secondary/20 rounded-lg p-6">
               <h3 className="font-medium text-lg mb-3 text-accent">{feature.name}</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                 {feature.description}
