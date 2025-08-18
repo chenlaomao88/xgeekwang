@@ -1,4 +1,5 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import qrWechat from "@/assets/qr-wechat.jpg";
 
 interface ResearchDialogProps {
   trigger: React.ReactNode;
@@ -8,7 +9,7 @@ export default function ResearchDialog({ trigger }: ResearchDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-w-lg sm:rounded-lg">
+      <DialogContent className="max-w-lg sm:rounded-lg select-text">
         <DialogHeader>
           <DialogTitle className="text-xl font-light">香河创新与创业研究报告</DialogTitle>
           <DialogDescription>探索科技驱动的未来机遇</DialogDescription>
@@ -28,14 +29,14 @@ export default function ResearchDialog({ trigger }: ResearchDialogProps) {
           <div className="flex flex-col items-center p-4 bg-muted rounded-lg">
             <h3 className="font-medium mb-2">获取完整版报告</h3>
             <img 
-              src="/src/assets/qr-wechat.jpg" 
-              alt="公众号二维码" 
-              className="w-32 h-32 mb-4"
-              draggable="false"
-              onContextMenu={(e) => e.preventDefault()}
-              loading="lazy"
-              decoding="async"
-            />
+                src={qrWechat} 
+                alt="公众号二维码" 
+                className="w-32 h-32 mb-4"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                loading="lazy"
+                decoding="async"
+              />
             <p className="text-sm mb-2">扫码公众号回复【研究报告】获取完整版</p>
             <p className="text-xs text-muted-foreground">暂缓开放，开放日另行通知</p>
           </div>
