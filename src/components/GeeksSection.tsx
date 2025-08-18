@@ -701,19 +701,11 @@ const MemberDetailModal = ({ member, onClose, positions }: {
   const [scrollPosition, setScrollPosition] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // 简化版职位数据用于移动端
-  const mobilePositions = [
-    { name: 'CEO', weights: { 创新: 25, 跨界: 20, 资源: 15, 技术: 10, 商业: 15, 领导: 15 } },
-    { name: 'CTO', weights: { 创新: 20, 跨界: 15, 资源: 10, 技术: 35, 商业: 10, 领导: 10 } },
-    { name: 'CFO', weights: { 创新: 10, 跨界: 15, 资源: 20, 技术: 5, 商业: 35, 领导: 15 } },
-    { name: 'COO', weights: { 创新: 15, 跨界: 25, 资源: 20, 技术: 15, 商业: 15, 领导: 10 } },
-    { name: 'CMO', weights: { 创新: 20, 跨界: 25, 资源: 25, 技术: 5, 商业: 20, 领导: 5 } },
-    { name: 'CIO', weights: { 创新: 15, 跨界: 15, 资源: 10, 技术: 40, 商业: 5, 领导: 15 } },
-    { name: 'AI架构师', weights: { 创新: 20, 跨界: 15, 资源: 10, 技术: 40, 商业: 5, 领导: 10 } },
-    { name: '产品经理', weights: { 创新: 25, 跨界: 20, 资源: 10, 技术: 15, 商业: 20, 领导: 10 } },
-    { name: '创业导师', weights: { 创新: 30, 跨界: 25, 资源: 20, 技术: 5, 商业: 10, 领导: 10 } },
-    { name: '市场拓展', weights: { 创新: 15, 跨界: 20, 资源: 25, 技术: 5, 商业: 25, 领导: 10 } }
-  ];
+  // 使用与web端一致的职位数据
+  const mobilePositions = positions.filter(position => !position.hidden).map(position => ({
+    name: position.name,
+    weights: position.weights
+  }));
 
   const calculatePositionScore = (abilities: any, positionWeights: any) => {
     let score = 0;
