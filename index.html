@@ -19,6 +19,7 @@
     
     <!-- 禁止图片下载、内容复制和鼠标右键菜单 -->
     <style>
+      /* 禁止图片拖拽和长按保存 */
       img {
         -webkit-user-drag: none;
         -khtml-user-drag: none;
@@ -31,23 +32,18 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        pointer-events: none;
       }
       
-      /* 为logo图片保留pointer-events以支持hover动效 */
-      .logo-hover {
-        pointer-events: auto;
-      }
+      /* 禁止文本选择 */
       body {
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
         -webkit-touch-callout: none;
-        -webkit-tap-highlight-color: transparent;
-        /* 允许滚动 */
-        overflow-y: auto;
-        touch-action: pan-y;
       }
+      
       /* 弹窗滚动支持 - 适用于所有设备 */
       .DialogContent {
         -webkit-overflow-scrolling: touch;
@@ -56,11 +52,18 @@
         /* 隐藏滚动条 */
         scrollbar-width: none;
         -ms-overflow-style: none;
+        /* 禁止文本选择，但保持滚动功能 */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
+      
       /* Webkit浏览器隐藏滚动条 */
       .DialogContent::-webkit-scrollbar {
         display: none;
       }
+      
       /* 添加下滑指示器 */
       .DialogContent::after {
         content: '';
@@ -74,12 +77,14 @@
         border-radius: 2px;
         animation: scrollIndicator 1.5s infinite ease-in-out;
       }
+      
       @keyframes scrollIndicator {
         0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
         50% { opacity: 1; transform: translateX(-50%) translateY(5px); }
       }
-      /* 允许弹窗内容选择 */
-      .DialogContent * {
+      
+      /* 为需要文本选择的特定元素添加例外 */
+      .selectable-text {
         -webkit-user-select: text;
         -moz-user-select: text;
         -ms-user-select: text;
@@ -90,21 +95,6 @@
       document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
       });
-      
-      // 禁止移动端长按图片保存
-      document.addEventListener('touchstart', function(e) {
-        if (e.touches.length > 1) {
-          e.preventDefault();
-        }
-      });
-      
-      // 禁止双指缩放
-      document.addEventListener('touchmove', function(e) {
-        if (e.scale !== 1) {
-          e.preventDefault();
-        }
-      }, { passive: false });
-      
       document.addEventListener('keydown', function(e) {
         // 禁止Ctrl+C、Ctrl+V、Ctrl+A等快捷键
         if ((e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 65)) ||
