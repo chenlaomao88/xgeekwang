@@ -67,7 +67,7 @@ const GeeksSection = () => {
         领导: 75
       },
       industries: ['产品管理', '用户体验', '市场分析', 'AI网络'],
-      joinTime: '2025-02-20'
+      joinTime: '2025-04-20'
     },
     {
       id: '李投资人',
@@ -174,7 +174,7 @@ const GeeksSection = () => {
         领导: 80
       },
       industries: ['私募股权', '科技服务', '综合消费', '传统制造', '品牌策划', '创业孵化'],
-      joinTime: '2025-05-20'
+      joinTime: '2025-02-20'
     },
     {
       id: '钱分析师',
@@ -298,7 +298,7 @@ const GeeksSection = () => {
         领导: 95
       },
       industries: ['风险投资', '早期投资', '科技评估', '创业指导', '金融科技'],
-      joinTime: '2025-05-20'
+      joinTime: '2025-02-20'
     },
     {
       id: '黄CTO',
