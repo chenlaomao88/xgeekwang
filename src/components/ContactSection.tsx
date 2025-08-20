@@ -84,7 +84,6 @@ const ContactSection = () => {
                             decoding="async"
                             className="w-[11.215rem] h-[11.215rem] border border-border/20 rounded-lg"
                             draggable="false"
-                            onContextMenu={(e) => e.preventDefault()}
                           />
                           <button className="btn-outline text-sm">
                             {item.action}
