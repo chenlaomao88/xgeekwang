@@ -21,7 +21,7 @@ export default function ManifestDialog({ trigger, className }: ManifestDialogPro
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className={cn("max-w-3xl sm:rounded-lg", className)}>
+      <DialogContent className={cn("max-w-3xl sm:rounded-lg select-text", className)}>
         <DialogHeader>
           <DialogTitle className="text-2xl font-light">香河困不住的火种</DialogTitle>
           <DialogDescription className="text-sm">北漂精英，是时候回我们的主场了</DialogDescription>

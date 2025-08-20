@@ -330,8 +330,8 @@ const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => v
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-grow overflow-y-auto hide-scrollbar p-6 max-h-[calc(100vh-150px)]">
-        <div className="min-h-full flex flex-col">
+      <div className="flex-grow overflow-y-auto hide-scrollbar p-6">
+        <div className="h-full flex flex-col">
           <p className="text-muted-foreground mb-6 text-sm leading-relaxed flex-grow">
             {module.description}
           </p>
