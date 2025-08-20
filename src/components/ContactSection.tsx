@@ -83,7 +83,6 @@ const ContactSection = () => {
                             loading="lazy"
                             decoding="async"
                             className="w-[11.215rem] h-[11.215rem] border border-border/20 rounded-lg qr-code"
-                            draggable="false"
                           />
                           <button className="btn-outline text-sm">
                             {item.action}
