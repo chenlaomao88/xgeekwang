@@ -305,16 +305,16 @@ const ModuleDetail = ({ module, onClose }: { module: any; onClose: () => void })
 
 const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => void }) => {
   return (
-    <div className="flex flex-col h-full">
-      {/* Header - Fixed height */}
-      <div className="flex-shrink-0 p-4 border-b">
+    <div className="flex flex-col h-full bg-card rounded-lg overflow-hidden">
+      {/* Header - Fixed height with improved styling */}
+      <div className="flex-shrink-0 p-4 border-b bg-background">
         <div className="flex items-start justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
               <module.icon className="w-5 h-5 text-accent" />
             </div>
             <div>
-              <h2 className="text-lg font-light">{module.title}</h2>
+              <h2 className="text-lg font-semibold">{module.title}</h2>
               <p className="text-xs text-muted-foreground">{module.subtitle}</p>
             </div>
           </div>
@@ -322,41 +322,52 @@ const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => v
             onClick={onClose}
             className="text-muted-foreground hover:text-foreground transition-colors ml-3"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
       </div>
 
-      {/* Scrollable Content */}
-      <div className="flex-grow overflow-y-auto hide-scrollbar p-4">
-        <div className="flex flex-col h-full">
-          <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-            {module.description}
-          </p>
-
-          <div className="grid grid-cols-1 gap-3">
-            {module.detailContent.features.map((feature: any, index: number) => (
-              <div key={index} className="bg-secondary/20 rounded-lg p-3">
-                <h3 className="font-medium text-sm mb-1 text-accent">{feature.name}</h3>
-                <p className="text-xs text-muted-foreground mb-2 leading-relaxed">
-                  {feature.description}
-                </p>
-                <div className="inline-block px-2 py-0.5 bg-accent/10 text-accent text-xs rounded-full">
-                  {feature.status}
-                </div>
-              </div>
-            ))}
+      {/* Scrollable Content with improved spacing and styling */}
+      <div className="flex-grow overflow-y-auto hide-scrollbar">
+        <div className="p-4 space-y-6">
+          {/* Description Section */}
+          <div className="bg-secondary/10 rounded-lg p-4">
+            <h3 className="font-medium text-md mb-2 text-foreground">模块介绍</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {module.description}
+            </p>
           </div>
 
-          <div className="mt-4 p-3 bg-accent/5 rounded-lg border border-accent/20">
-            <h3 className="font-medium text-sm mb-2">如何使用</h3>
-            <p className="text-xs text-muted-foreground mb-2">
+          {/* Features Grid */}
+          <div>
+            <h3 className="font-medium text-md mb-3 text-foreground">核心功能</h3>
+            <div className="grid grid-cols-1 gap-3">
+              {module.detailContent.features.map((feature: any, index: number) => (
+                <div key={index} className="bg-background border rounded-lg p-4 shadow-sm">
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="font-medium text-sm text-accent">{feature.name}</h4>
+                    <span className="inline-block px-2 py-1 bg-accent/10 text-accent text-xs rounded-full whitespace-nowrap">
+                      {feature.status}
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* How to Use Section */}
+          <div className="bg-accent/5 rounded-lg border border-accent/20 p-4">
+            <h3 className="font-medium text-md mb-2 text-foreground">如何使用</h3>
+            <p className="text-xs text-muted-foreground mb-3">
               Web端仅提供展示和宣传，完整功能通过微信小程序完成。
             </p>
             <button 
-              className="btn-primary text-xs px-3 py-1.5"
+              className="btn-primary text-xs px-4 py-2 w-full"
               onClick={() => alert('小程序搭建中，敬请期待')}
             >
               扫码进入小程序
