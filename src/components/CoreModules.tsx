@@ -332,18 +332,18 @@ const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => v
       {/* Scrollable Content */}
       <div className="flex-grow overflow-y-auto hide-scrollbar p-6 bg-background">
         <div className="min-h-full flex flex-col">
-          <p className="text-muted-foreground mb-6 text-sm leading-relaxed flex-shrink-0">
+          <p className="text-muted-foreground mb-6 text-base leading-relaxed flex-shrink-0">
             {module.description}
           </p>
 
           <div className="grid grid-cols-1 gap-4 flex-grow">
             {module.detailContent.features.map((feature: any, index: number) => (
               <div key={index} className="bg-secondary/20 rounded-lg p-4 flex-shrink-0">
-                <h3 className="font-medium text-base mb-2 text-accent">{feature.name}</h3>
-                <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
+                <h3 className="font-medium text-lg mb-2 text-accent">{feature.name}</h3>
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   {feature.description}
                 </p>
-                <div className="inline-block px-2 py-1 bg-accent/10 text-accent text-xs rounded-full">
+                <div className="inline-block px-2 py-1 bg-accent/10 text-accent text-sm rounded-full">
                   {feature.status}
                 </div>
               </div>
@@ -351,12 +351,12 @@ const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => v
           </div>
 
           <div className="mt-6 p-4 bg-accent/5 rounded-lg border border-accent/20 flex-shrink-0">
-            <h3 className="font-medium text-base mb-3">如何使用</h3>
-            <p className="text-xs text-muted-foreground mb-3">
+            <h3 className="font-medium text-lg mb-3">如何使用</h3>
+            <p className="text-sm text-muted-foreground mb-3">
               Web端仅提供展示和宣传，完整功能通过微信小程序完成。
             </p>
             <button 
-              className="btn-primary text-xs px-4 py-2"
+              className="btn-primary text-sm px-4 py-2"
               onClick={() => alert('小程序搭建中，敬请期待')}
             >
               扫码进入小程序
