@@ -304,6 +304,9 @@ const ModuleDetail = ({ module, onClose }: { module: any; onClose: () => void })
 };
 
 const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => void }) => {
+  // 清理描述文本末尾的多余换行符
+  const cleanDescription = module.description.replace(/\n+$/, '');
+  
   return (
     <div className="flex flex-col h-full">
       {/* Header - Fixed height */}
@@ -331,19 +334,19 @@ const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => v
 
       {/* Scrollable Content */}
       <div className="flex-grow overflow-y-auto hide-scrollbar p-4">
-        <div className="h-full flex flex-col">
-          <p className="text-muted-foreground mb-4 text-base leading-relaxed flex-grow">
-            {module.description}
+        <div className="flex flex-col h-full">
+          <p className="text-muted-foreground mb-4 text-base leading-relaxed flex-grow-0">
+            {cleanDescription}
           </p>
 
-          <div className="grid grid-cols-1 gap-4 flex-shrink-0">
+          <div className="grid grid-cols-1 gap-4 flex-grow">
             {module.detailContent.features.map((feature: any, index: number) => (
-              <div key={index} className="bg-secondary/20 rounded-lg p-4">
+              <div key={index} className="bg-secondary/20 rounded-lg p-4 flex flex-col h-full">
                 <h3 className="font-medium text-base mb-2 text-accent">{feature.name}</h3>
-                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed flex-grow">
                   {feature.description}
                 </p>
-                <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">
+                <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-sm rounded-full mt-auto">
                   {feature.status}
                 </div>
               </div>
