@@ -161,7 +161,7 @@ const CoreModules = () => {
           </div>
           
           {/* Mobile Version - Responsive height with scrollable content */}
-          <div className="md:hidden w-full max-w-[90vw] max-h-[70vh] flex items-center justify-center">
+          <div className="md:hidden w-full max-w-[90vw] max-h-[60vh] flex items-center justify-center">
             <div 
               className="bg-card rounded-lg w-full h-full flex flex-col"
               onClick={(e) => e.stopPropagation()}
