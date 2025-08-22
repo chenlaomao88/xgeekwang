@@ -32,8 +32,6 @@ export default function ResearchDialog({ trigger }: ResearchDialogProps) {
                 src={qrWechat} 
                 alt="公众号二维码" 
                 className="w-32 h-32 mb-4"
-                draggable="false"
-                onContextMenu={(e) => e.preventDefault()}
                 loading="lazy"
                 decoding="async"
               />

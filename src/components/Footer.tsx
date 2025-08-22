@@ -66,7 +66,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={logo} alt="Logo" className="w-10 h-10 rounded-full object-contain" draggable="false" onContextMenu={(e) => e.preventDefault()} loading="lazy" decoding="async" />
+              <img src={logo} alt="Logo" className="w-10 h-10 rounded-full object-contain" loading="lazy" decoding="async" />
               <div className="text-xl font-light tracking-wider">X极客网</div>
             </div>
             <p className="text-sm font-light leading-relaxed opacity-80">

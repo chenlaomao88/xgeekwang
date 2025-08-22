@@ -101,8 +101,6 @@ export default function ApplyDialog({ trigger, mode = "apply" }: ApplyDialogProp
                 src={qrWechat} 
                 alt="公众号二维码" 
                 className="mx-auto mt-2 w-32 h-32 object-contain"
-                draggable="false"
-                onContextMenu={(e) => e.preventDefault()}
                 loading="eager"
                 decoding="async"
               />

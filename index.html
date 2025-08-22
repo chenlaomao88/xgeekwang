@@ -17,8 +17,27 @@
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="" />
     
-    <!-- 允许图片下载、内容复制和鼠标右键菜单，以便在微信端识别二维码 -->
+    <!-- 禁止图片下载、内容复制和鼠标右键菜单 -->
     <style>
+      img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      body {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
       /* 弹窗滚动支持 - 适用于所有设备 */
       .DialogContent {
         -webkit-overflow-scrolling: touch;
@@ -57,12 +76,49 @@
         user-select: text;
       }
     </style>
+    <script>
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('keydown', function(e) {
+        // 禁止Ctrl+C、Ctrl+V、Ctrl+A等快捷键
+        if ((e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 65)) ||
+            (e.keyCode === 123) || // F12
+            (e.ctrlKey && e.shiftKey && e.keyCode === 73)) { // Ctrl+Shift+I
+          e.preventDefault();
+        }
+      });
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <style>
+      /* 防止图片被保存 */
+      img:not(.logo-hover) {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+        pointer-events: none;
+      }
+      
+      /* 防止文本被选择和复制 */
+      body:not(.allow-select) {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
       /* 弹窗滚动样式 */
       .modal-open {
         overflow: hidden;
@@ -79,5 +135,26 @@
         display: none; /* Chrome, Safari, Opera*/
       }
     </style>
+    <script>
+      // 禁用右键菜单和常用快捷键
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        // 禁用 Ctrl+C, Ctrl+V, Ctrl+A
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || 
+                          e.key === 'v' || e.key === 'V' || 
+                          e.key === 'a' || e.key === 'A' ||
+                          e.key === 'u' || e.key === 'U' ||
+                          e.key === 's' || e.key === 'S')) {
+          e.preventDefault();
+        }
+        // 禁用 F12
+        if (e.key === 'F12') {
+          e.preventDefault();
+        }
+      });
+    </script>
   </body>
 </html>
