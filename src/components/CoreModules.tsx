@@ -161,7 +161,7 @@ const CoreModules = () => {
           </div>
           
           {/* Mobile Version - Responsive height with scrollable content */}
-          <div className="md:hidden w-full max-w-[90vw] max-h-[90vh] flex items-center justify-center">
+          <div className="md:hidden w-full max-w-[90vw] aspect-[9/16] flex items-center justify-center">
             <div 
               className="bg-card rounded-lg w-full h-full flex flex-col"
               onClick={(e) => e.stopPropagation()}
@@ -305,7 +305,7 @@ const ModuleDetail = ({ module, onClose }: { module: any; onClose: () => void })
 
 const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => void }) => {
   return (
-    <div className="flex flex-col max-h-[90vh]">
+    <div className="flex flex-col aspect-[9/16]">
       {/* Header - Fixed height */}
       <div className="flex-shrink-0 p-4 border-b">
         <div className="flex items-start justify-between">
