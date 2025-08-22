@@ -305,7 +305,7 @@ const ModuleDetail = ({ module, onClose }: { module: any; onClose: () => void })
 
 const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => void }) => {
   return (
-    <div className="flex flex-col max-h-[100vh]">
+    <div className="flex flex-col max-h-[60vh]">
       {/* Header - Fixed height */}
       <div className="flex-shrink-0 p-4 border-b">
         <div className="flex items-start justify-between">
