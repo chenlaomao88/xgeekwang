@@ -305,24 +305,24 @@ const ModuleDetail = ({ module, onClose }: { module: any; onClose: () => void })
 
 const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => void }) => {
   return (
-    <div className="flex flex-col h-full max-h-[100vh]">
+    <div className="flex flex-col h-full">
       {/* Header - Fixed height */}
-      <div className="flex-shrink-0 p-4 border-b">
+      <div className="flex-shrink-0 p-6 border-b">
         <div className="flex items-start justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <module.icon className="w-5 h-5 text-accent" />
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <module.icon className="w-6 h-6 text-accent" />
             </div>
             <div>
-              <h2 className="text-lg font-light">{module.title}</h2>
-              <p className="text-xs text-muted-foreground">{module.subtitle}</p>
+              <h2 className="text-xl font-light">{module.title}</h2>
+              <p className="text-sm text-muted-foreground">{module.subtitle}</p>
             </div>
           </div>
           <button 
             onClick={onClose}
-            className="text-muted-foreground hover:text-foreground transition-colors ml-2"
+            className="text-muted-foreground hover:text-foreground transition-colors ml-4"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -330,17 +330,17 @@ const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => v
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-grow overflow-y-auto hide-scrollbar p-4">
+      <div className="flex-grow overflow-y-auto hide-scrollbar p-6">
         <div className="h-full flex flex-col">
-          <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">
+          <p className="text-muted-foreground mb-6 text-sm leading-relaxed flex-grow">
             {module.description}
           </p>
 
-          <div className="grid grid-cols-1 gap-3 flex-shrink-0">
+          <div className="grid grid-cols-1 gap-4 flex-shrink-0">
             {module.detailContent.features.map((feature: any, index: number) => (
-              <div key={index} className="bg-secondary/20 rounded-lg p-3">
-                <h3 className="font-medium text-base mb-1 text-accent">{feature.name}</h3>
-                <p className="text-xs text-muted-foreground mb-2 leading-relaxed">
+              <div key={index} className="bg-secondary/20 rounded-lg p-4">
+                <h3 className="font-medium text-base mb-2 text-accent">{feature.name}</h3>
+                <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
                   {feature.description}
                 </p>
                 <div className="inline-block px-2 py-1 bg-accent/10 text-accent text-xs rounded-full">
@@ -350,13 +350,13 @@ const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => v
             ))}
           </div>
 
-          <div className="mt-4 p-3 bg-accent/5 rounded-lg border border-accent/20 flex-shrink-0">
-            <h3 className="font-medium text-base mb-2">如何使用</h3>
-            <p className="text-xs text-muted-foreground mb-2">
+          <div className="mt-6 p-4 bg-accent/5 rounded-lg border border-accent/20 flex-shrink-0">
+            <h3 className="font-medium text-base mb-3">如何使用</h3>
+            <p className="text-xs text-muted-foreground mb-3">
               Web端仅提供展示和宣传，完整功能通过微信小程序完成。
             </p>
             <button 
-              className="btn-primary text-xs px-3 py-1.5"
+              className="btn-primary text-xs px-4 py-2"
               onClick={() => alert('小程序搭建中，敬请期待')}
             >
               扫码进入小程序
