@@ -161,7 +161,7 @@ const CoreModules = () => {
           </div>
           
           {/* Mobile Version - Responsive height with scrollable content */}
-          <div className="md:hidden w-full max-w-[90vw] max-h-[150vh] flex items-center justify-center">
+          <div className="md:hidden w-full max-w-[90vw] aspect-[9/16] flex items-center justify-center">
             <div 
               className="bg-card rounded-lg w-full h-full flex flex-col"
               onClick={(e) => e.stopPropagation()}
@@ -267,28 +267,28 @@ const ModuleDetail = ({ module, onClose }: { module: any; onClose: () => void })
         </button>
       </div>
 
-      <div className="prose prose-sm max-w-none">
-        <p className="text-muted-foreground mb-8 text-base leading-relaxed">
+      <div className="prose max-w-none">
+        <p className="text-muted-foreground mb-6 text-base leading-relaxed">
           {module.description}
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {module.detailContent.features.map((feature, index) => (
-            <div key={index} className="bg-secondary/20 rounded-lg p-6">
+            <div key={index} className="bg-secondary/20 rounded-lg p-5">
               <h3 className="font-medium text-lg mb-3 text-accent">{feature.name}</h3>
-              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+              <p className="text-base text-muted-foreground mb-4 leading-relaxed">
                 {feature.description}
               </p>
-              <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
+              <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">
                 {feature.status}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 p-6 bg-accent/5 rounded-lg border border-accent/20">
-          <h3 className="font-medium text-lg mb-4">如何使用</h3>
-          <p className="text-sm text-muted-foreground mb-4">
+        <div className="mt-6 p-5 bg-accent/5 rounded-lg border border-accent/20">
+          <h3 className="font-medium text-lg mb-3">如何使用</h3>
+          <p className="text-base text-muted-foreground mb-3">
             Web端仅提供展示和宣传，完整功能通过微信小程序完成。
           </p>
           <button 
