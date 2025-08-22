@@ -305,7 +305,7 @@ const ModuleDetail = ({ module, onClose }: { module: any; onClose: () => void })
 
 const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => void }) => {
   return (
-    <div className="flex flex-col aspect-[9/15]">
+    <div className="flex flex-col h-full">
       {/* Header - Fixed height */}
       <div className="flex-shrink-0 p-4 border-b">
         <div className="flex items-start justify-between">
@@ -331,12 +331,12 @@ const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => v
 
       {/* Scrollable Content */}
       <div className="flex-grow overflow-y-auto hide-scrollbar p-4">
-        <div className="h-full flex flex-col">
-          <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">
+        <div className="flex flex-col h-full">
+          <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
             {module.description}
           </p>
 
-          <div className="grid grid-cols-1 gap-3 flex-shrink-0">
+          <div className="grid grid-cols-1 gap-3">
             {module.detailContent.features.map((feature: any, index: number) => (
               <div key={index} className="bg-secondary/20 rounded-lg p-3">
                 <h3 className="font-medium text-sm mb-1 text-accent">{feature.name}</h3>
@@ -350,7 +350,7 @@ const MobileModuleDetail = ({ module, onClose }: { module: any; onClose: () => v
             ))}
           </div>
 
-          <div className="mt-4 p-3 bg-accent/5 rounded-lg border border-accent/20 flex-shrink-0">
+          <div className="mt-4 p-3 bg-accent/5 rounded-lg border border-accent/20">
             <h3 className="font-medium text-sm mb-2">如何使用</h3>
             <p className="text-xs text-muted-foreground mb-2">
               Web端仅提供展示和宣传，完整功能通过微信小程序完成。
