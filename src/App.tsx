@@ -42,8 +42,11 @@ const App = () => {
     };
 
     const handleContextMenu = (e: MouseEvent) => {
-      e.preventDefault();
-      return false;
+      // Allow context menu for QR code images
+      if (!(e.target as HTMLElement).classList.contains('qr-code')) {
+        e.preventDefault();
+        return false;
+      }
     };
 
     document.addEventListener('keydown', handleKeyDown);
