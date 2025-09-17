@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X极客网</title>
+    <meta name="description" content="X极客网：聚合AI、投资、硬科技等中国顶尖人才的创新生态，共创项目、资源对接与跨界合作。" />
+    <meta name="author" content="X极客网" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <meta property="og:title" content="X极客网" />
+    <meta property="og:description" content="聚合AI、投资、硬科技等中国顶尖人才的创新生态，共创项目、资源对接与跨界合作。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="" />
+    
+    <!-- 禁止图片下载、内容复制和鼠标右键菜单 -->
+    <style>
+      /* 弹窗滚动支持 - 适用于所有设备 */
+      .DialogContent {
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+        max-height: 80vh;
+        /* 隐藏滚动条 */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      /* Webkit浏览器隐藏滚动条 */
+      .DialogContent::-webkit-scrollbar {
+        display: none;
+      }
+      /* 添加下滑指示器 */
+      .DialogContent::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 3px;
+        background: rgba(0,0,0,0.2);
+        border-radius: 2px;
+        animation: scrollIndicator 1.5s infinite ease-in-out;
+      }
+      @keyframes scrollIndicator {
+        0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+        50% { opacity: 1; transform: translateX(-50%) translateY(5px); }
+      }
+      /* 允许弹窗内容选择 */
+      .DialogContent * {
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <style>
+      /* 防止图片被保存 */
+      img:not(.qr-code):not(.logo-hover) {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+      }
+      
+      /* 防止文本被选择和复制 */
+      body:not(.allow-select) {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      /* 弹窗滚动样式 */
+      .modal-open {
+        overflow: hidden;
+      }
+      .modal-open .modal-overlay {
+        overflow-y: auto;
+      }
+      /* 滚动条隐藏样式 */
+      .hide-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
+      }
+    </style>
+    <script>
+      // 禁用右键菜单和常用快捷键，但允许二维码图片
+      document.addEventListener('contextmenu', function(e) {
+        // 检查点击的元素是否是二维码图片
+        if (!e.target.classList.contains('qr-code')) {
+          e.preventDefault();
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        // 禁用 Ctrl+C, Ctrl+V, Ctrl+A
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || 
+                          e.key === 'v' || e.key === 'V' || 
+                          e.key === 'a' || e.key === 'A' ||
+                          e.key === 'u' || e.key === 'U' ||
+                          e.key === 's' || e.key === 'S')) {
+          e.preventDefault();
+        }
+        // 禁用 F12
+        if (e.key === 'F12') {
+          e.preventDefault();
+        }
+      });
+    </script>
+  </body>
+</html>
