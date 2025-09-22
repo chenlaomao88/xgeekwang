@@ -379,14 +379,14 @@ const GeeksSection = () => {
     {
       id: '薛宝华',
       name: '薛宝华',
-      title: '移动应用架构师',
+      title: 'Al+移动端技术专家',
       avatar: memberXue,
       story: '10年原生iOS/Android开发经验，5年产品经历，主导过多个移动应用开发。虽身在北京，但对极客网的组织文化高度认可。',
       abilities: {
         创新: 85,
         跨界: 83,
         资源: 87,
-        技术: 89,
+        技术: 91,
         商业: 82,
         领导: 82
       },
