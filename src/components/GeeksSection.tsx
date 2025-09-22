@@ -390,7 +390,7 @@ const GeeksSection = () => {
         商业: 82,
         领导: 82
       },
-      industries: ['移动开发', 'iOS', 'Android', '产品设计', '市场推广'],
+      industries: ['产业AI', '技术标准','移动开发', 'iOS', 'Android', '产品设计', '市场推广'],
       joinTime: '2025-09-16'
     },
     {
